@@ -1,6 +1,6 @@
 #NQueensA_MWJ.py
-#Max puzzle size: 6
-#Iterations taken: 759
+#Max puzzle size: 6 -- [4, 2, 0, 5, 3, 1]
+#Iterations taken: 3581 iterations.
 import random
 
 #Variables
@@ -25,8 +25,8 @@ def conflicts(array):
 while(conflicts(nq) > 0):
     iterations += 1
     nq = [random.randint(0,n-1) for x in range(n)]
-    #print("Number of conflicts: " + str(conflicts(nq)) + ".")
     print("Randomizing puzzle, attempt: " + str(iterations) + ".")
 
 #Print conflicts and iteration count
+print(nq)
 print("Problem solved in: " + str(iterations) + " iterations.")
