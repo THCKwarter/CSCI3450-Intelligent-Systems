@@ -1,16 +1,13 @@
 #NQueensA_MWJ.py
-#Define a function to count number of conflicts()
-#While number of conflicts in NQ > 0
-    #Randomize (or improve) NQ
-#Print NQ
-#Print number of iterations
-
-#abs value of x-y & y-x to check for diagonal conflict
+#Max puzzle size: 6
+#Iterations taken: 759
 import random
 
-#Ask user for n value
-n = 8
+#Variables
+n = int(input("Enter a range for n: "))
 nq = [random.randint(0,n-1) for x in range(n)]
+iterations = 0
+
 #Define function
 def conflicts(array):
     confCount = 0
@@ -23,6 +20,13 @@ def conflicts(array):
             if (abs(array[x]-array[y]) == abs(x-y)):
                 confCount += 1
     return confCount
-print(nq)                
-print("Number of conflicts: [" + str(conflicts(nq)) + "]")
-                
+
+#Loop until solution is found
+while(conflicts(nq) > 0):
+    iterations += 1
+    nq = [random.randint(0,n-1) for x in range(n)]
+    #print("Number of conflicts: " + str(conflicts(nq)) + ".")
+    print("Randomizing puzzle, attempt: " + str(iterations) + ".")
+
+#Print conflicts and iteration count
+print("Problem solved in: " + str(iterations) + " iterations.")
